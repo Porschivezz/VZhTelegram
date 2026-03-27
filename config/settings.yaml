@@ -1,0 +1,35 @@
+# =============================================================================
+# Global pipeline settings
+# =============================================================================
+
+pipeline:
+  cycle_interval_minutes: 60       # How often the full pipeline runs
+  freshness_hours: 12              # Max age of articles to consider
+  concurrent_fetches: 20           # Max parallel HTTP requests for RSS
+  request_timeout_seconds: 30      # HTTP request timeout
+  retry_attempts: 3                # Retries for failed HTTP requests
+  retry_backoff_seconds: 2         # Base backoff between retries
+
+storage:
+  database_path: "data/vzhtelegram.db"
+  dedup_window_hours: 72           # Check duplicates against last N hours
+  simhash_threshold: 3             # Hamming distance for content dedup
+
+generator:
+  model: "anthropic/claude-sonnet-4-20250514"
+  fallback_model: "anthropic/claude-haiku-4-5-20251001"
+  temperature: 0.7
+  max_tokens: 2048
+  regen_temperature_delta: 0.15    # Added to temperature on regeneration
+
+social:
+  # Path to last30days-skill script
+  last30days_script: "~/.claude/skills/last30days/scripts/last30days.py"
+  # Timeout for social collection (seconds)
+  timeout_seconds: 300
+  # Fallback to direct APIs if last30days fails
+  use_fallback_apis: true
+
+logging:
+  level: "INFO"
+  format: "json"                   # json | console

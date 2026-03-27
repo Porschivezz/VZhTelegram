@@ -1,0 +1,703 @@
+# =============================================================================
+# VZhTelegram Source List — 80+ RSS/web sources for monitoring
+# =============================================================================
+# Each source has:
+#   id:        unique identifier
+#   name:      human-readable name
+#   url:       RSS feed URL or website URL
+#   type:      rss | web (web = scraper fallback)
+#   category:  topic category for scoring
+#   tier:      1 (premium) | 2 (strong) | 3 (supplementary) — authority weight
+#   language:  en | ru
+#   selectors: (optional) CSS selectors for web scraping fallback
+# =============================================================================
+
+sources:
+
+  # ---------------------------------------------------------------------------
+  # Консалтинг и стратегия
+  # ---------------------------------------------------------------------------
+  - id: mckinsey_insights
+    name: "McKinsey Insights"
+    url: "https://www.mckinsey.com/insights/rss"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: bcg_henderson
+    name: "BCG Henderson Institute"
+    url: "https://www.bcg.com/rss.xml"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: bain_insights
+    name: "Bain Insights"
+    url: "https://www.bain.com/insights/feed/"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: strategy_business
+    name: "strategy+business (PwC)"
+    url: "https://www.strategy-business.com/rss"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: deloitte_insights
+    name: "Deloitte Insights"
+    url: "https://www2.deloitte.com/us/en/insights/rss.html"
+    type: web
+    category: consulting
+    tier: 1
+    language: en
+    selectors:
+      article: "article.insight-card"
+      title: "h3"
+      link: "a"
+
+  - id: ey_insights
+    name: "EY Insights"
+    url: "https://www.ey.com/en_gl/insights"
+    type: web
+    category: consulting
+    tier: 2
+    language: en
+
+  - id: kearney
+    name: "Kearney Ideas"
+    url: "https://www.kearney.com/feed"
+    type: rss
+    category: consulting
+    tier: 2
+    language: en
+
+  - id: hbs_working_knowledge
+    name: "HBS Working Knowledge"
+    url: "https://hbswk.hbs.edu/rss/rss.html"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: insead_knowledge
+    name: "INSEAD Knowledge"
+    url: "https://knowledge.insead.edu/rss.xml"
+    type: rss
+    category: consulting
+    tier: 2
+    language: en
+
+  - id: imd_research
+    name: "IMD Research & Knowledge"
+    url: "https://www.imd.org/rss/research-knowledge/"
+    type: rss
+    category: consulting
+    tier: 2
+    language: en
+
+  - id: wef
+    name: "World Economic Forum"
+    url: "https://www.weforum.org/feed"
+    type: rss
+    category: consulting
+    tier: 1
+    language: en
+
+  - id: eurasia_group
+    name: "Eurasia Group"
+    url: "https://www.eurasiagroup.net/live-post/feed"
+    type: web
+    category: geopolitics
+    tier: 1
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # AI и технологии
+  # ---------------------------------------------------------------------------
+  - id: stanford_hai
+    name: "Stanford HAI"
+    url: "https://hai.stanford.edu/news/rss.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: mit_tech_review
+    name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
+    type: rss
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: openai_blog
+    name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: deepmind_blog
+    name: "Google DeepMind Blog"
+    url: "https://deepmind.google/blog/rss.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: anthropic_news
+    name: "Anthropic News"
+    url: "https://www.anthropic.com/news/rss"
+    type: web
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: huggingface_blog
+    name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: papers_with_code
+    name: "Papers with Code"
+    url: "https://paperswithcode.com/latest"
+    type: web
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: arxiv_cs_ai
+    name: "arXiv cs.AI"
+    url: "https://rss.arxiv.org/rss/cs.AI"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: arxiv_cs_lg
+    name: "arXiv cs.LG"
+    url: "https://rss.arxiv.org/rss/cs.LG"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: techcrunch
+    name: "TechCrunch AI"
+    url: "https://techcrunch.com/category/artificial-intelligence/feed/"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: the_verge
+    name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: wired
+    name: "Wired"
+    url: "https://www.wired.com/feed/rss"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: ars_technica
+    name: "Ars Technica"
+    url: "https://feeds.arstechnica.com/arstechnica/index"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  - id: cb_insights
+    name: "CB Insights Research"
+    url: "https://www.cbinsights.com/research/feed/"
+    type: rss
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: gartner
+    name: "Gartner Newsroom"
+    url: "https://www.gartner.com/en/newsroom/rss"
+    type: web
+    category: ai_bigdata
+    tier: 1
+    language: en
+
+  - id: nist_ai
+    name: "NIST AI"
+    url: "https://www.nist.gov/artificial-intelligence/rss.xml"
+    type: rss
+    category: ai_bigdata
+    tier: 2
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Финансы и экономика
+  # ---------------------------------------------------------------------------
+  - id: bis_quarterly
+    name: "BIS Quarterly Review"
+    url: "https://www.bis.org/doclist/quartrdings.rss"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: imf_blog
+    name: "IMF Blog"
+    url: "https://www.imf.org/en/Blogs/rss"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: voxeu
+    name: "VoxEU (CEPR)"
+    url: "https://cepr.org/voxeu/rss"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: nber_digest
+    name: "NBER Digest"
+    url: "https://www.nber.org/digest.xml"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: bloomberg
+    name: "Bloomberg"
+    url: "https://feeds.bloomberg.com/markets/news.rss"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: ft
+    name: "Financial Times"
+    url: "https://www.ft.com/?format=rss"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: wsj
+    name: "Wall Street Journal"
+    url: "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: economist
+    name: "The Economist"
+    url: "https://www.economist.com/finance-and-economics/rss.xml"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: reuters_business
+    name: "Reuters Business"
+    url: "https://feeds.reuters.com/reuters/businessNews"
+    type: rss
+    category: finance
+    tier: 1
+    language: en
+
+  - id: pitchbook
+    name: "PitchBook News"
+    url: "https://pitchbook.com/news/feed"
+    type: rss
+    category: finance
+    tier: 2
+    language: en
+
+  - id: seeking_alpha
+    name: "Seeking Alpha"
+    url: "https://seekingalpha.com/feed.xml"
+    type: rss
+    category: finance
+    tier: 3
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Медицина и биотех
+  # ---------------------------------------------------------------------------
+  - id: stat_news
+    name: "STAT News"
+    url: "https://www.statnews.com/feed/"
+    type: rss
+    category: biotech
+    tier: 1
+    language: en
+
+  - id: nature
+    name: "Nature"
+    url: "https://www.nature.com/nature.rss"
+    type: rss
+    category: biotech
+    tier: 1
+    language: en
+
+  - id: science_mag
+    name: "Science Magazine"
+    url: "https://www.science.org/rss/news_current.xml"
+    type: rss
+    category: biotech
+    tier: 1
+    language: en
+
+  - id: lancet
+    name: "The Lancet"
+    url: "https://www.thelancet.com/rssfeed/lancet_current.xml"
+    type: rss
+    category: biotech
+    tier: 1
+    language: en
+
+  - id: biopharma_dive
+    name: "BioPharma Dive"
+    url: "https://www.biopharmadive.com/feeds/news/"
+    type: rss
+    category: biotech
+    tier: 2
+    language: en
+
+  - id: endpoints_news
+    name: "Endpoints News"
+    url: "https://endpts.com/feed/"
+    type: rss
+    category: biotech
+    tier: 2
+    language: en
+
+  - id: fierce_biotech
+    name: "Fierce Biotech"
+    url: "https://www.fiercebiotech.com/rss/xml"
+    type: rss
+    category: biotech
+    tier: 2
+    language: en
+
+  - id: nih_news
+    name: "NIH News"
+    url: "https://www.nih.gov/news-events/news-releases/feed"
+    type: rss
+    category: biotech
+    tier: 2
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Медиа, PR, маркетинг
+  # ---------------------------------------------------------------------------
+  - id: nieman_lab
+    name: "Nieman Lab"
+    url: "https://www.niemanlab.org/feed/"
+    type: rss
+    category: media_marketing
+    tier: 1
+    language: en
+
+  - id: digiday
+    name: "Digiday"
+    url: "https://digiday.com/feed/"
+    type: rss
+    category: media_marketing
+    tier: 2
+    language: en
+
+  - id: adage
+    name: "Ad Age"
+    url: "https://adage.com/feed"
+    type: rss
+    category: media_marketing
+    tier: 2
+    language: en
+
+  - id: prweek
+    name: "PR Week"
+    url: "https://www.prweek.com/rss"
+    type: rss
+    category: media_marketing
+    tier: 2
+    language: en
+
+  - id: axios_media
+    name: "Axios Media"
+    url: "https://api.axios.com/feed/media-trends"
+    type: rss
+    category: media_marketing
+    tier: 2
+    language: en
+
+  - id: cjr
+    name: "Columbia Journalism Review"
+    url: "https://www.cjr.org/feed"
+    type: rss
+    category: media_marketing
+    tier: 2
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Геополитика
+  # ---------------------------------------------------------------------------
+  - id: foreign_affairs
+    name: "Foreign Affairs"
+    url: "https://www.foreignaffairs.com/rss.xml"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  - id: the_diplomat
+    name: "The Diplomat"
+    url: "https://thediplomat.com/feed/"
+    type: rss
+    category: geopolitics
+    tier: 2
+    language: en
+
+  - id: brookings
+    name: "Brookings Institution"
+    url: "https://www.brookings.edu/feed/"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  - id: carnegie
+    name: "Carnegie Endowment"
+    url: "https://carnegieendowment.org/rss/solr"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  - id: bbc_world
+    name: "BBC World"
+    url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  - id: aljazeera
+    name: "Al Jazeera"
+    url: "https://www.aljazeera.com/xml/rss/all.xml"
+    type: rss
+    category: geopolitics
+    tier: 2
+    language: en
+
+  - id: csis
+    name: "CSIS"
+    url: "https://www.csis.org/analysis/feed"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  - id: cfr
+    name: "Council on Foreign Relations"
+    url: "https://www.cfr.org/rss.xml"
+    type: rss
+    category: geopolitics
+    tier: 1
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Форсайт и слабые сигналы
+  # ---------------------------------------------------------------------------
+  - id: oecd_foresight
+    name: "OECD Foresight"
+    url: "https://www.oecd.org/strategic-foresight/rss"
+    type: web
+    category: foresight
+    tier: 1
+    language: en
+
+  - id: iftf
+    name: "Institute for the Future"
+    url: "https://www.iftf.org/insights/feed"
+    type: web
+    category: foresight
+    tier: 2
+    language: en
+
+  - id: cisa_alerts
+    name: "CISA Alerts"
+    url: "https://www.cisa.gov/news.xml"
+    type: rss
+    category: foresight
+    tier: 2
+    language: en
+
+  - id: enisa
+    name: "ENISA Threat Landscape"
+    url: "https://www.enisa.europa.eu/media/news-items/RSS"
+    type: rss
+    category: foresight
+    tier: 2
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Корпоративное управление
+  # ---------------------------------------------------------------------------
+  - id: harvard_law_governance
+    name: "Harvard Law Forum on Corp Governance"
+    url: "https://corpgov.law.harvard.edu/feed/"
+    type: rss
+    category: governance
+    tier: 1
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Патенты и IP
+  # ---------------------------------------------------------------------------
+  - id: wipo_news
+    name: "WIPO News"
+    url: "https://www.wipo.int/pressroom/rss/en/index.xml"
+    type: rss
+    category: patents
+    tier: 2
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Стартапы и глобальный контекст
+  # ---------------------------------------------------------------------------
+  - id: rest_of_world
+    name: "Rest of World"
+    url: "https://restofworld.org/feed/"
+    type: rss
+    category: global_tech
+    tier: 1
+    language: en
+
+  - id: the_information
+    name: "The Information"
+    url: "https://www.theinformation.com/feed"
+    type: rss
+    category: global_tech
+    tier: 1
+    language: en
+
+  - id: nikkei_asia
+    name: "Nikkei Asia"
+    url: "https://asia.nikkei.com/rss"
+    type: rss
+    category: global_tech
+    tier: 2
+    language: en
+
+  - id: technode
+    name: "TechNode"
+    url: "https://technode.com/feed/"
+    type: rss
+    category: global_tech
+    tier: 3
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Крупные новостные агентства (общий фон)
+  # ---------------------------------------------------------------------------
+  - id: reuters_top
+    name: "Reuters Top News"
+    url: "https://feeds.reuters.com/reuters/topNews"
+    type: rss
+    category: news
+    tier: 1
+    language: en
+
+  - id: ap_news
+    name: "Associated Press"
+    url: "https://rsshub.app/apnews/topics/apf-topnews"
+    type: rss
+    category: news
+    tier: 1
+    language: en
+
+  # ---------------------------------------------------------------------------
+  # Информационное потребление / attention economy
+  # ---------------------------------------------------------------------------
+  - id: platformer
+    name: "Platformer"
+    url: "https://www.platformer.news/rss/"
+    type: rss
+    category: info_consumption
+    tier: 2
+    language: en
+
+  - id: ben_thompson
+    name: "Stratechery"
+    url: "https://stratechery.com/feed/"
+    type: rss
+    category: info_consumption
+    tier: 1
+    language: en
+
+
+# =============================================================================
+# Social / last30days-skill sources
+# =============================================================================
+social_sources:
+  reddit:
+    subreddits:
+      - MachineLearning
+      - artificial
+      - consulting
+      - geopolitics
+      - biotech
+      - finance
+      - marketing
+      - datascience
+      - Futurology
+    min_score: 50
+
+  hackernews:
+    min_score: 100
+
+  youtube:
+    channels:
+      - TwoMinutePapers
+      - Fireship
+      - 3Blue1Brown
+      - ColdFusion
+      - PolyMatter
+
+  bluesky:
+    feeds:
+      - ai-news
+      - tech
+      - science
+
+  polymarket:
+    categories:
+      - politics
+      - tech
+      - science
+      - finance
+
+  x_twitter:
+    lists:
+      - ai-leaders
+      - finance-macro
+      - biotech
