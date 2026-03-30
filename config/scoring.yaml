@@ -1,0 +1,217 @@
+# =============================================================================
+# Scoring configuration — weights, thresholds, topic keywords
+# =============================================================================
+# Adjust weights and thresholds to tune content selection quality.
+# Total weight MUST sum to 1.0.
+# =============================================================================
+
+scoring:
+  weights:
+    topic_relevance: 0.30      # Match to channel themes
+    freshness: 0.20            # Exponential decay from publish time
+    source_authority: 0.20     # Tier-based authority score
+    engagement: 0.15           # Social signals (where available)
+    uniqueness: 0.15           # Inverse similarity to recent content
+
+  # Freshness decay: score = exp(-lambda * hours_since_publish)
+  freshness_lambda: 0.18      # At 12h → ~0.11, at 6h → ~0.34, at 1h → ~0.84
+
+  thresholds:
+    minimum_score: 0.45        # Below this → discard
+    auto_select_above: 0.80    # Above this → always include
+
+  limits:
+    max_posts_per_cycle: 5     # Max drafts per hourly cycle
+    min_posts_per_cycle: 0     # Allow zero if nothing qualifies
+    max_from_same_source: 2    # Diversity: max articles from one source
+    max_from_same_category: 3  # Diversity: max articles from one category
+
+  # Authority scores by tier (used in source_authority factor)
+  tier_scores:
+    1: 1.0
+    2: 0.7
+    3: 0.4
+
+# =============================================================================
+# Topic definitions — keywords for topic_relevance scoring
+# =============================================================================
+# Each topic has:
+#   weight: how important this topic is to the channel (0.0-1.0)
+#   keywords_en: English keywords
+#   keywords_ru: Russian keywords (optional, for Russian-language sources)
+#   categories: source categories that auto-match this topic
+# =============================================================================
+
+topics:
+  ai_bigdata:
+    weight: 1.0
+    categories: [ai_bigdata]
+    keywords_en:
+      - artificial intelligence
+      - machine learning
+      - large language model
+      - LLM
+      - deep learning
+      - neural network
+      - GPT
+      - Claude
+      - transformer
+      - generative AI
+      - AGI
+      - big data
+      - data science
+      - computer vision
+      - NLP
+      - reinforcement learning
+      - foundation model
+      - AI safety
+      - AI alignment
+      - AI regulation
+    keywords_ru:
+      - искусственный интеллект
+      - нейросеть
+      - нейронная сеть
+      - большие данные
+      - машинное обучение
+      - генеративный ИИ
+
+  consulting:
+    weight: 0.9
+    categories: [consulting, governance]
+    keywords_en:
+      - management consulting
+      - strategy
+      - McKinsey
+      - BCG
+      - Bain
+      - Deloitte
+      - corporate governance
+      - CEO
+      - C-suite
+      - board of directors
+      - digital transformation
+      - operational excellence
+      - change management
+      - due diligence
+      - mergers acquisitions
+    keywords_ru:
+      - стратегический консалтинг
+      - корпоративное управление
+      - цифровая трансформация
+
+  info_consumption:
+    weight: 0.9
+    categories: [info_consumption]
+    keywords_en:
+      - information consumption
+      - attention economy
+      - misinformation
+      - disinformation
+      - media literacy
+      - algorithmic feed
+      - content curation
+      - information overload
+      - filter bubble
+      - echo chamber
+      - news aggregation
+      - media habits
+    keywords_ru:
+      - потребление информации
+      - информационный шум
+      - медиаграмотность
+
+  media_marketing:
+    weight: 0.8
+    categories: [media_marketing]
+    keywords_en:
+      - media
+      - public relations
+      - PR
+      - marketing
+      - advertising
+      - content marketing
+      - social media marketing
+      - brand strategy
+      - journalism
+      - media landscape
+      - programmatic
+      - influencer
+    keywords_ru:
+      - медиа
+      - маркетинг
+      - реклама
+      - связи с общественностью
+
+  finance:
+    weight: 0.85
+    categories: [finance]
+    keywords_en:
+      - financial markets
+      - stocks
+      - bonds
+      - Federal Reserve
+      - Fed
+      - ECB
+      - interest rates
+      - inflation
+      - IPO
+      - venture capital
+      - private equity
+      - cryptocurrency
+      - fintech
+      - central bank
+      - monetary policy
+      - fiscal policy
+      - recession
+    keywords_ru:
+      - финансовые рынки
+      - акции
+      - облигации
+      - ФРС
+      - инфляция
+      - криптовалюта
+
+  biotech:
+    weight: 0.8
+    categories: [biotech]
+    keywords_en:
+      - biotechnology
+      - pharmaceutical
+      - clinical trial
+      - FDA
+      - drug approval
+      - gene therapy
+      - CRISPR
+      - vaccine
+      - healthcare
+      - oncology
+      - precision medicine
+      - longevity
+      - genomics
+    keywords_ru:
+      - биотехнологии
+      - фармацевтика
+      - клинические испытания
+      - генная терапия
+
+  geopolitics:
+    weight: 0.6
+    categories: [geopolitics]
+    keywords_en:
+      - geopolitics
+      - sanctions
+      - trade war
+      - NATO
+      - United Nations
+      - diplomacy
+      - conflict
+      - foreign policy
+      - international relations
+      - sovereignty
+      - alliance
+      - nuclear
+    keywords_ru:
+      - геополитика
+      - санкции
+      - торговая война
+      - дипломатия
